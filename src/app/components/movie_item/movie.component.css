@@ -1,0 +1,55 @@
+.movie-item {
+  display: grid;
+  padding: 10px;
+  grid-gap: 15px;
+  transition: all 50ms;
+}
+
+.movie-item:hover {
+  background-color: #1f2023;
+}
+
+p {
+  color: #4a4d52;
+}
+
+.postal-hold {
+  position: relative;
+}
+
+.postal-hold svg {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.postal-hold .isFavourite {
+  fill: #b70303;
+}
+
+img {
+  width: 100%;
+  height: 300px;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #fafafa;
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.description {
+  color: #414141;
+}
+
+span {
+  font-size: 11px;
+  color: #414141;
+}

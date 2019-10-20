@@ -1,0 +1,11 @@
+<h2 *ngIf="movies.length > 0">Popular Movies</h2>
+<h4 *ngIf="movies.length === 0">No movies available</h4>
+<section *ngIf="movies.length > 0">
+  <a [routerLink]="['/movie', movie.id]" *ngFor="let movie of movies; let i = index">
+    <app-movie [movie]="movie"></app-movie>
+  </a>
+</section>
+
+<div class="view-more">
+  <p (click)=selectPage($event)>View More</p>
+</div>

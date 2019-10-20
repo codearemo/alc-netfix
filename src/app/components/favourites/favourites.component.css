@@ -1,0 +1,53 @@
+.favs-movie-hold {
+  padding: 10px;
+  padding-top: 13vh;
+}
+
+.each-fav-movie:hover {
+  box-shadow: 0px 0px 3px #4a4d52;
+  cursor: pointer;
+}
+
+.no-item {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.each-fav-movie {
+  margin-top: 20px;
+}
+
+h2 {
+  color: #a09191;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin: 10px 0;
+  color: #fafafa;
+}
+
+p {
+  margin-top: 5px;
+  color: #4a4d52;
+}
+
+em {
+  color: #949494;
+}
+
+@media screen and (min-width: 500px) {
+  .each-fav-movie {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    margin: 15px 100px;
+    grid-gap: 20px;
+  }
+
+  .plot {
+    margin: 20px 0;
+  }
+}

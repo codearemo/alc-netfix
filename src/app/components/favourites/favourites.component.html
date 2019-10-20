@@ -1,0 +1,26 @@
+<section class="no-item" *ngIf="favouriteMovies.length === 0 && isLoading === false">
+  <h3 *ngIf="favouriteMovies.length === 0">You have no favourites yet.</h3>
+</section>
+
+<section *ngIf="isLoading" class="no-content">
+  <h3>Loading...</h3>
+</section>
+
+<section class="favs-movie-hold" *ngIf="favouriteMovies.length > 0 && isLoading === false">
+  <h2>Favourites</h2>
+  <div class="each-fav-movie" *ngFor="let favMovie of favouriteMovies" (click)="routeToMovieDetails(favMovie.id)">
+    <div class="movie-pic-art">
+      <img width="100%" [src]="buildImageUrl(favMovie.poster_path)" [alt]="favMovie.title">
+    </div>
+    <div class="content-hold">
+      <h3>{{ favMovie.title }}</h3>
+      <p>{{ favMovie.vote_average }}</p>
+      <div>
+        <p>Genre(s)</p>
+        <em *ngFor="let genre of favMovie.genres;let i = index">{{genre.name}}<span style="padding-right: 5px"
+            *ngIf="+i + 1 !== favMovie.genres.length">,</span></em>
+      </div>
+      <p class="plot">{{ favMovie?.overview }}</p>
+    </div>
+  </div>
+</section>

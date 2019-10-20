@@ -1,0 +1,76 @@
+<section class="primary-info">
+  <div class="movie-art-hold">
+    <svg (click)="addFavouraite($event)" [ngClass]="{'isFavourite': isFavourite}" [id]="movieDetail?.id"
+      xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DF691A"
+      stroke-width="3" stroke-linecap="square" stroke-linejoin="arcs">
+      <path [id]="movieDetail?.id"
+        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+      </path>
+    </svg>
+    <img *ngIf="moviePicArt" [src]="moviePicArt" [alt]="movieDetail?.title" width="100%">
+  </div>
+  <div class="more-info">
+    <h2> {{ movieDetail?.title }} </h2>
+    <div class="info-hold">
+      <p *ngIf="movieDetail?.tagline"> {{ movieDetail?.tagline }} </p>
+      <p *ngIf="movieDetail?.vote_average"> {{ movieDetail?.vote_average }} ~ <em>rating</em> </p>
+      <p *ngIf="movieDetail?.runtime"> {{ movieDetail?.runtime | runtime }} </p>
+      <p *ngIf="movieDetail?.budget"> {{ movieDetail?.budget | currency }} ~ <em>budget</em> </p>
+      <p *ngIf="movieDetail?.revenue"> {{ movieDetail?.revenue | currency }} ~ <em>revenue</em> </p>
+      <p *ngIf="movieDetail?.release_date"> {{ movieDetail?.release_date | date }} ~ <em>release date</em> </p>
+
+      <div class="list-hold" *ngIf="movieDetail?.production_countries">
+        <p>Production Countr(ies)</p>
+        <em *ngFor="let country of movieDetail?.production_countries;let i = index"
+          [ngStyle]="{'margin-left.px': i === 0 ? 20 : 3}"> {{ country.name }}<span
+            *ngIf="+i + 1 !== movieDetail?.production_countries.length">,</span> </em>
+      </div>
+
+      <div class="list-hold" *ngIf="movieDetail?.spoken_languages">
+        <p>Spoken language(s)</p>
+        <em *ngFor="let language of movieDetail?.spoken_languages;let i = index"
+          [ngStyle]="{'margin-left.px': i === 0 ? 20 : 3}"> {{ language.name }}<span
+            *ngIf="+i + 1 !== movieDetail?.spoken_languages.length">,</span> </em>
+      </div>
+
+      <div class="list-hold" *ngIf="movieDetail?.genres">
+        <p>Genre(s)</p>
+        <em *ngFor="let genre of movieDetail?.genres;let i = index" [ngStyle]="{'margin-left.px': i === 0 ? 20 : 3}">
+          {{ genre.name }}<span *ngIf="+i + 1 !== movieDetail?.genres.length">,</span> </em>
+      </div>
+
+      <div class="website-link-hold" *ngIf="movieDetail?.homepage">
+        <a target="_blank" [href]="movieDetail?.homepage">Official Website</a>
+      </div>
+
+    </div>
+    <section *ngIf="movieDetail?.overview">
+      <p>Plot/Overview</p>
+      <em class="plot" style="padding: 0">{{ movieDetail?.overview }}</em>
+    </section>
+  </div>
+</section>
+
+<section class="cast-mobile" *ngIf="cast?.length > 0">
+  <h4>Cast</h4>
+  <div>
+    <div class="cast-hold" *ngFor="let castPerson of cast">
+      <img width="70%" [src]="buildImgLink(castPerson.profile_path)" [alt]="castPerson.name">
+      <p>{{ castPerson.name }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="crew-mobile" *ngIf="crew?.length > 0">
+  <h4>Crew</h4>
+  <div class="crew-hold" *ngFor="let crewPerson of crew">
+    <p>{{ crewPerson.name }} - <em>{{ crewPerson.job }}</em></p>
+  </div>
+</section>
+
+<section *ngIf="teasers?.length > 0" class="trailers">
+  <div class="trailer" *ngFor="let trailer of teasers">
+    <iframe width="100%" height="" [src]="buildTrailerVideo(trailer.source)" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>

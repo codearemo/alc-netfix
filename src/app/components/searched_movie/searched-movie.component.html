@@ -1,0 +1,27 @@
+<section class="no-content" *ngIf="searchedResult?.length === 0 && isLoading === false">
+  <h2>No result for searched movie.</h2>
+</section>
+
+<section *ngIf="isLoading" class="no-content">
+  <h3>Loading...</h3>
+</section>
+
+<h2 class="serch-header" *ngIf="searchedResult?.length > 0 && isLoading === false">Searched Result for
+  "{{ searchedParameter }}"</h2>
+<section *ngIf="searchedResult?.length > 0 && isLoading === false">
+  <form #searchMovieForm="ngForm" required (submit)="searchByMovieByTitle(searchMovieForm)">
+    <input ngModel name="movieTitle" type="text" placeholder="Search Movie Title...">
+  </form>
+</section>
+<section class="search-result-catalog" *ngIf="searchedResult?.length > 0 && isLoading === false">
+  <div *ngFor="let searchedMovie of searchedResult" class="movie-item-hold"
+    (click)="showMovieDetails(searchedMovie.id)">
+    <div>
+      <img [src]="buildImageUrl(searchedMovie.poster_path)" [alt]="searchedMovie.title" width="100%" height="270px">
+    </div>
+    <div>
+      <h3>{{searchedMovie.title | formattext:20}}</h3>
+      <p>{{searchedMovie.release_date | date}}</p>
+    </div>
+  </div>
+</section>

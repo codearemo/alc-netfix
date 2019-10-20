@@ -1,0 +1,35 @@
+<section [ngStyle]="{'background': 'linear-gradient(
+  rgba(0, 0, 0, 0.9),
+  rgba(0, 0, 0, 0.0)
+), url(' + getBackDropImageUrl() + ')'}">
+</section>
+<span class=form-hold>
+  <form (submit)="searchMovie(movieSearch)" #movieSearch="ngForm">
+    <input type="text" ngModel name="movieTosearch" placeholder="Movie Title..." required>
+  </form>
+  <svg (click)="hideSearchInput($event)" class="hide-icon close-search-icon-action" xmlns="http://www.w3.org/2000/svg"
+    width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square"
+    stroke-linejoin="arcs">
+    <circle cx="12" cy="12" r="10" class="close-search-icon-action"></circle>
+    <line x1="15" y1="9" x2="9" y2="15" class="close-search-icon-action"></line>
+    <line x1="9" y1="9" x2="15" y2="15" class="close-search-icon-action"></line>
+  </svg>
+</span>
+
+<span (click)="showSearchInput($event)" class="search-icon-hold search-icon-action">
+  <svg class="search-icon-action" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
+    fill="none" stroke="#fff" stroke-width="3" stroke-linecap="square" stroke-linejoin="arcs">
+    <circle cx="11" cy="11" r="8" class="search-icon-action"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65" class="search-icon-action"></line>
+  </svg>
+</span>
+
+
+
+<div>
+  <h1> {{ recievedHeroMovie?.title }} </h1>
+  <!-- <p> {{ recievedHeroMovie?.rating }}/10 </p> -->
+</div>
+
+<img *ngIf="getBackPostalImageUrl()" [src]="getBackPostalImageUrl()" [alt]="getBackPostalTitle()"
+  [id]="recievedHeroMovie.id" (click)="showMovieDetails($event)">

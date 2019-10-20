@@ -1,0 +1,38 @@
+<header>
+  <a [routerLink]="['/']">
+    <h2>ALC NETFLIX</h2>
+  </a>
+
+  <svg (click)="showingNav = !showingNav" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24"
+    fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+  <nav *ngIf="showingNav">
+    <div (click)="routePageToHome()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff"
+        stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs">
+        <path d="M20 9v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9" />
+        <path d="M9 22V12h6v10M2 10.6L12 2l10 8.6" /></svg>
+      <p>Home</p>
+    </div>
+    <div (click)="routePageToFavourite()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff"
+        stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs">
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+        </path>
+      </svg>
+      <p>Favourvite</p>
+    </div>
+    <div (click)="routePageToAuth()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff"
+        stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <p>Login</p>
+    </div>
+  </nav>
+</header>
