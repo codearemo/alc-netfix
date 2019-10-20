@@ -20,9 +20,10 @@ export class MoviesService {
   getMoviesBySearchTitle(searchedTitle: string) {
     // Split searched input to an array
     const listOfKeyWords: string[] = searchedTitle.split(' ');
-    //
-    let totalWords = '';
+
     // Populate query strings
+    let totalWords = '';
+
     listOfKeyWords.forEach((word, keyWordIndex) => {
       if (keyWordIndex === 0) {
         totalWords += word.toLowerCase();
