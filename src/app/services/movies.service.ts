@@ -32,18 +32,18 @@ export class MoviesService {
     });
 
     // tslint:disable-next-line: max-line-length
-    return this.http.get<any>(`http://api.themoviedb.org/3/search/movie?api_key=9100531e04995c3938a66cd379c6cff5&query=${totalWords}`);
+    return this.http.get<any>(`https://api.themoviedb.org/3/search/movie?api_key=9100531e04995c3938a66cd379c6cff5&query=${totalWords}`);
   }
 
   getMovieDetails(movieId) {
     // tslint:disable-next-line: max-line-length
-    return this.http.get(`http://api.themoviedb.org/3/movie/${movieId}?api_key=9100531e04995c3938a66cd379c6cff5&append_to_response=trailers,credits`);
+    return this.http.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=9100531e04995c3938a66cd379c6cff5&append_to_response=trailers,credits`);
   }
 
   getMovieById() {
     return this.isFavouriteList.map(favMovieId => {
       // tslint:disable-next-line: max-line-length
-      return this.http.get<any>(`http://api.themoviedb.org/3/movie/${favMovieId}?api_key=9100531e04995c3938a66cd379c6cff5`);
+      return this.http.get<any>(`https://api.themoviedb.org/3/movie/${favMovieId}?api_key=9100531e04995c3938a66cd379c6cff5`);
     });
   }
 
