@@ -1,5 +1,5 @@
 <section class="primary-info">
-  <div class="movie-art-hold">
+  <div class="movie-art-hold" *ngIf="moviePicArt">
     <svg (click)="addFavouraite($event)" [ngClass]="{'isFavourite': isFavourite}" [id]="movieDetail?.id"
       xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#DF691A"
       stroke-width="3" stroke-linecap="square" stroke-linejoin="arcs">
@@ -7,7 +7,7 @@
         d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
       </path>
     </svg>
-    <img *ngIf="moviePicArt" [src]="moviePicArt" [alt]="movieDetail?.title" width="100%">
+    <img [src]="moviePicArt" [alt]="movieDetail?.title" width="100%">
   </div>
   <div class="more-info">
     <h2> {{ movieDetail?.title }} </h2>
