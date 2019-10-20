@@ -19,14 +19,14 @@ import { SearchedMovieComponent } from './components/searched_movie/searched-mov
 
 @NgModule({
   declarations: [
+    FormatTextPipe,
+    RateDecimalPipe,
+    RunTimePipe,
     AppComponent,
     HeaderComponent,
     HeroComponent,
     MoviesCatalogComponent,
     MovieItemComponent,
-    FormatTextPipe,
-    RateDecimalPipe,
-    RunTimePipe,
     MovieDetailComponent,
     DashboardComponent,
     FavouritesComponent,
