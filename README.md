@@ -3,6 +3,8 @@
 ## About Project
 link: https://alc-netflix.netlify.com/
 
+(https://github.com/nadchif/liteflix-alc/raw/master/src/assets/snapshots/Screenshot 2019-10-21 at 08.18.12.png)
+
 ## Angular Docs
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 
